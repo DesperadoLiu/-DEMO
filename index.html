@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>鬍鬚張 | 大數據儀表板 DEMO</title>
+    <!-- 使用 0.71.0 以支援 st.Page 指令 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.71.0/build/stlite.css" />
+  </head>
+  <body>
+    <div id="stlite"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.71.0/build/stlite.js"></script>
+    <script>
+      stlite.mount(
+        {
+          requirements: ["pandas", "plotly", "numpy"],
+          entrypoint: "demo_app.py",
+          files: {
+            "demo_app.py": { url: "demo_app.py?v=17" },
+            "dashboard_home.py": { url: "dashboard_home.py?v=17" },
+            "config.py": { url: "config.py?v=17" },
+            "pages/1_整體營運分析.py": { url: "pages/1_整體營運分析.py?v=17" },
+            "pages/2_轄區營運分析.py": { url: "pages/2_轄區營運分析.py?v=17" },
+            "pages/3_商品表現分析.py": { url: "pages/3_商品表現分析.py?v=17" },
+            "pages/4_消費行為分析.py": { url: "pages/4_消費行為分析.py?v=17" },
+            "pages/5_系統管理.py": { url: "pages/5_系統管理.py?v=17" },
+            "pages/__init__.py": { url: "pages/__init__.py?v=17" },
+            "src/mock_data.py": { url: "src/mock_data.py?v=17" },
+            "src/services.py": { url: "src/services.py?v=17" },
+            "src/metrics.py": { url: "src/metrics.py?v=17" },
+            "src/ui.py": { url: "src/ui.py?v=17" },
+            "src/filters.py": { url: "src/filters.py?v=17" },
+            "src/utils.py": { url: "src/utils.py?v=17" },
+            "src/charts.py": { url: "src/charts.py?v=17" },
+            "src/session_manager.py": { url: "src/session_manager.py?v=17" },
+            "src/weather.py": { url: "src/weather.py?v=17" },
+            "src/etl.py": { url: "src/etl.py?v=17" },
+            "src/__init__.py": { url: "src/__init__.py?v=17" },
+          },
+        },
+        document.getElementById("stlite")
+      );
+    </script>
+  </body>
+</html>
