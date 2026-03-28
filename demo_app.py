@@ -6,7 +6,7 @@ import datetime
 import streamlit as st
 
 st.set_page_config(
-    page_title="鬍鬚張|行企部|大數據儀表板",
+    page_title="鬍鬚張|行企部|大數據儀表板虛擬展示",
     page_icon=':bar_chart:',
     layout='wide',
 )
