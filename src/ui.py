@@ -191,6 +191,52 @@ def apply_page_style():
         div[data-testid='stCaptionContainer'] p {{
             margin-bottom: 0.35rem;
         }}
+        
+        /* === RWD 響應式優化 === */
+        @media (max-width: 1024px) {{
+            .codex-kpi-value {{
+                font-size: clamp(1.9rem, 5vw, 2.4rem);
+            }}
+        }}
+
+        @media (max-width: 768px) {{
+            .block-container {{
+                padding-top: 1.5rem !important;
+                padding-bottom: 1rem !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }}
+            .codex-kpi-card {{
+                padding: 0.9rem 1rem !important;
+                min-height: 130px !important;
+                box-shadow: 0 8px 20px rgba(29, 78, 216, 0.08) !important;
+            }}
+            .codex-kpi-label {{
+                font-size: 0.85rem !important;
+                min-height: 2.2em !important;
+                margin-bottom: 0.4rem !important;
+            }}
+            .codex-kpi-value {{
+                font-size: clamp(1.7rem, 9vw, 2.2rem) !important;
+            }}
+            .codex-kpi-sub {{
+                margin-top: 0.4rem !important;
+                font-size: 0.8rem !important;
+            }}
+            .codex-section {{
+                margin-top: 1rem !important;
+                font-size: 1.05rem !important;
+            }}
+            .codex-panel {{
+                padding: 0.8rem !important;
+                font-size: 0.9rem !important;
+            }}
+            /* 優化 Plotly 圖表在手機上的外距 */
+            div[data-testid='stPlotlyChart'] {{
+                padding: 0.3rem 0.3rem 0.1rem 0.3rem !important;
+                border-radius: 12px !important;
+            }}
+        }}
         </style>
         """,
         unsafe_allow_html=True,

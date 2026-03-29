@@ -41,11 +41,51 @@ def render_sidebar_header():
     import streamlit.components.v1 as components
     with st.sidebar:
         components.html(f"""
-        <div style="font-family: inherit; background: rgba(255, 255, 255, 0.12); border-radius: 20px; padding: 22px 15px; border: 1px solid rgba(255,255,255,0.25); text-align: center; color: #3f332b; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin: 0;">
-            <h1 id="sidebar-clock" style="margin: 0; font-size: 42px; font-weight: 800; letter-spacing: -1px; line-height: 1; font-family: sans-serif;">00:00:00</h1>
-            <div style="font-size: 16px; font-weight: 500; opacity: 0.8; margin-top: 8px; font-family: sans-serif;">{date_str} {weekday_str}</div>
-            <hr style="margin: 18px 0; border: 0; border-top: 1px solid rgba(63, 51, 43, 0.12);">
-            <div style="display: flex; justify-content: space-around; align-items: center; font-size: 14px; font-weight: 600; font-family: sans-serif;">
+        <style>
+            .sidebar-card {{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: rgba(255, 255, 255, 0.15);
+                border-radius: 18px;
+                padding: 18px 12px;
+                border: 1px solid rgba(255,255,255,0.3);
+                text-align: center;
+                color: #3f332b;
+                box-shadow: 0 4px 15px rgba(31, 38, 135, 0.05);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                margin: 0;
+            }}
+            #sidebar-clock {{
+                margin: 0;
+                font-size: 38px;
+                font-weight: 850;
+                letter-spacing: -1.5px;
+                line-height: 1;
+            }}
+            .sidebar-date {{
+                font-size: 14px;
+                font-weight: 500;
+                opacity: 0.85;
+                margin-top: 6px;
+            }}
+            .sidebar-weather {{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                font-size: 13px;
+                font-weight: 700;
+                margin-top: 15px;
+            }}
+            @media (max-width: 320px) {{
+                #sidebar-clock {{ font-size: 30px; }}
+                .sidebar-date {{ font-size: 12px; }}
+                .sidebar-weather {{ font-size: 11px; }}
+            }}
+        </style>
+        <div class="sidebar-card">
+            <h1 id="sidebar-clock">00:00:00</h1>
+            <div class="sidebar-date">{date_str} {weekday_str}</div>
+            <div class="sidebar-weather">
                 <div title="現在溫度">溫 {temp}</div>
                 <div title="降雨機率">雨 {rain}</div>
                 <div title="紫外線指數">紫 {uv_val}</div>
@@ -63,7 +103,7 @@ def render_sidebar_header():
             setInterval(updateSidebarClock, 1000);
             updateSidebarClock();
         </script>
-        """, height=190)
+        """, height=165)
 
 st.markdown(
     """
@@ -99,6 +139,11 @@ st.markdown(
         padding-top: 0.5rem !important;
         padding-bottom: 0rem !important;
         min-height: 0px !important;
+    }
+    @media (max-width: 768px) {
+        [data-testid="stSidebarContent"] {
+            padding-top: 1rem !important;
+        }
     }
     </style>
     """,
